@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZTHGEREMPL_SRV_01" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="Subscription" sap:semantics="subscriptions" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Sub. ID" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="user" Type="Edm.String" MaxLength="12" m:FC_TargetPath="SyndicationAuthorName" m:FC_KeepInContent="false" sap:label="User Name" sap:creatable="false" sap:filterable="false"/>
+                <Property Name="updated" Type="Edm.DateTime" Precision="0" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="false" sap:label="Time Stamp" sap:creatable="false" sap:filterable="false"/>
+                <Property Name="title" Type="Edm.String" MaxLength="255" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="false" sap:label="Title" sap:filterable="false"/>
+                <Property Name="deliveryAddress" Type="Edm.String" sap:label="Delivery Address" sap:filterable="false"/>
+                <Property Name="persistNotifications" Type="Edm.Boolean" sap:label="Persist Notification" sap:filterable="false"/>
+                <Property Name="collection" Type="Edm.String" MaxLength="40" sap:label="Collection" sap:filterable="false"/>
+                <Property Name="filter" Type="Edm.String" sap:label="Filter" sap:filterable="false"/>
+                <Property Name="select" Type="Edm.String" MaxLength="255" sap:label="Select" sap:filterable="false"/>
+                <Property Name="changeType" Type="Edm.String" MaxLength="30" sap:label="Change Type"/>
+            </EntityType>
+            <EntityType Name="Notification" sap:semantics="notifications" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Notification ID"/>
+                <Property Name="collection" Type="Edm.String" MaxLength="40" sap:label="Collection"/>
+                <Property Name="title" Type="Edm.String" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="false" sap:label="Notif. Text"/>
+                <Property Name="updated" Type="Edm.DateTime" Precision="0" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="false" sap:label="Time Stamp"/>
+                <Property Name="changeType" Type="Edm.String" MaxLength="30" sap:label="Change Type"/>
+                <Property Name="entriesOfInterest" Type="Edm.Int32" sap:label="No. of Entries"/>
+                <Property Name="recipient" Type="Edm.String" MaxLength="112" sap:label="Recipient" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="zthger_empl" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Employee Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Firstname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Lastname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dob" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date of Birth" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Adresse" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="zthger_car" Relationship="ZTHGEREMPL_SRV_01.zthger_car_empl" FromRole="FromRole_zthger_car_empl" ToRole="ToRole_zthger_car_empl"/>
+            </EntityType>
+            <EntityType Name="zthger_car" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Carrid"/>
+                </Key>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Car Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Power" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Power" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Price" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Price" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CarPlate" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Plaque" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Brand" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Brand" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmplId" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Employee Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="zthger_car_empl" sap:content-version="1">
+                <End Type="ZTHGEREMPL_SRV_01.zthger_empl" Multiplicity="*" Role="FromRole_zthger_car_empl"/>
+                <End Type="ZTHGEREMPL_SRV_01.zthger_car" Multiplicity="1" Role="ToRole_zthger_car_empl"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_zthger_car_empl">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_zthger_car_empl">
+                        <PropertyRef Name="EmplId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZTHGEREMPL_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SubscriptionCollection" EntityType="ZTHGEREMPL_SRV_01.Subscription" sap:content-version="1"/>
+                <EntitySet Name="NotificationCollection" EntityType="ZTHGEREMPL_SRV_01.Notification" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="zthger_emplSet" EntityType="ZTHGEREMPL_SRV_01.zthger_empl" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="zthger_carSet" EntityType="ZTHGEREMPL_SRV_01.zthger_car" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <AssociationSet Name="zthger_car_emplSet" Association="ZTHGEREMPL_SRV_01.zthger_car_empl" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zthger_emplSet" Role="FromRole_zthger_car_empl"/>
+                    <End EntitySet="zthger_carSet" Role="ToRole_zthger_car_empl"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://s4bp.net-portail.com:443/sap/opu/odata/SAP/ZTHGEREMPL_SRV_01/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4bp.net-portail.com:443/sap/opu/odata/SAP/ZTHGEREMPL_SRV_01/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,9 @@
+<mvc:View 
+    controllerName="caremp.caremp.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Shell id="_IDGenShell1" >
+        <App    id="app" 
+                class="MyApp"/>
+    </Shell>
+</mvc:View>

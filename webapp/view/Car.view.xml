@@ -1,0 +1,76 @@
+<mvc:View 
+    controllerName="caremp.caremp.controller.Car"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+            
+
+    
+                <Bar>
+                    <contentRight>
+                        <Button text="Save" press=".onSave"/>
+                        <Button text="Cancel" press=".onCancel"/>
+                        <Button text="Delete" press=".onDelete"/>
+                    </contentRight>
+                </Bar>
+    <f:Form id="FormChange354"
+			editable="true"
+            >
+			<f:title>
+            
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout	
+                    labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer id="form">
+					<f:formElements>
+						<f:FormElement label="Car Id">
+							<f:fields>
+								<Text text="{/Carrid}" id="id"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Brand">
+							<f:fields>
+								<Input value="{/Brand}" id="brand"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Power">
+							<f:fields>
+								<Input value="{/Power}" id="power"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="CarPlate">
+                            <f:fields>
+								<Input value="{/CarPlate}" id="carPlate"/>
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement label="EmplId">
+                            <f:fields>
+								<Input value="{/EmplId}" id="emplId"/>
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement label="Price">
+                            <f:fields>
+								<Input value="{/Price}" id="price"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+</mvc:View>

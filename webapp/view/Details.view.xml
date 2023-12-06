@@ -1,0 +1,52 @@
+<mvc:View 
+    controllerName="caremp.caremp.controller.Details"
+    id="_IDGenView1"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+        <Panel id="_IDGenPanel1">
+
+			<Title id="_IDGenTitle1" text="{/FirstName} {/LastName}" level="H1"/>
+        </Panel>
+        <Toolbar>
+                <Title text="Brand"/>
+                <ToolbarSpacer/>
+                <SearchField 
+               width="50%" 
+               search=".onFilter"/>
+               <Button text="Create" press=".onCreate"/>
+        </Toolbar>
+        
+         <Table id="carList" items="{/results}">
+         
+            <columns>
+                <Column>
+                    <Text text="Car Id"></Text>
+                </Column>
+                <Column>
+                    <Text text="Brand"></Text>
+                </Column>
+                <Column>
+                    <Text text="Power"></Text>
+                </Column>
+                <Column>
+                    <Text text="CarPlate"></Text>
+                </Column>
+                <Column>
+                    <Text text="Employee Id"></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem id="items" type="Navigation" press=".onPressCar" visible="{=${EmplId} === ${view>/id}}">
+                    <cells>
+                        <Text text="{Carrid}" />
+                        <Text text="{Brand}" />
+                        <Text text="{Power}" />
+                        <Text text="{CarPlate}" />
+                        <Text text="{EmplId}"/>
+
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        
+</mvc:View>

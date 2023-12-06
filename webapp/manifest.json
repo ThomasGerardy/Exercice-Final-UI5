@@ -1,0 +1,146 @@
+{
+  "_version": "1.28.0",
+  "sap.app": {
+    "id": "caremp.caremp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.11.1",
+      "toolsId": "51b1385d-3e08-420c-acfb-df068c2aca31"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/SAP/ZTHGEREMPL_SRV_01/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.84.37",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "caremp.caremp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "rootView": {
+      "viewName": "caremp.caremp.view.App",
+      "type": "XML",
+
+      "id": "app"
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "type": "View",
+        "viewType": "XML",
+        "async": true,
+        "path": "caremp.caremp.view",
+        "controlId": "app",
+        "clearControlAggregation": false,
+        "controlAggregation": "pages",
+        "transition": "slide"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name":"overview",
+          "target": "overview"
+        },
+        {
+          "pattern": "details/{ID}",
+          "name": "details",
+          "target": "details"
+        },
+        {
+          "pattern": "results/{ID}",
+          "name": "results",
+          "target": "results"
+        },
+        {
+          "pattern": "newcar",
+          "name": "newcar",
+          "target": "newcar"
+        }
+      ],
+      "targets": {
+        "overview":{
+          "id": "overview",
+          "name": "Overview"
+
+        },
+        "details": {
+          "id": "details",
+          "name": "Details"
+        },
+        "results": {
+          "id": "car",
+          "name": "Car"
+        },
+        "newcar": {
+          "id": "newcar",
+          "name": "CreateCar"
+        }
+      }
+    }
+  }
+}

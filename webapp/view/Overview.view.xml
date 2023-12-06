@@ -1,0 +1,12 @@
+<mvc:View
+	controllerName="caremp.caremp.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+>
+	<Page id="id10">
+                <content>
+                    <mvc:XMLView id="id5" viewName="caremp.caremp.view.EmployeesList" />
+                </content>
+            </Page>
+</mvc:View>

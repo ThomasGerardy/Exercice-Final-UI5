@@ -1,0 +1,42 @@
+<mvc:View 
+    controllerName="caremp.caremp.controller.EmployeesList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+        <Toolbar>
+                <Title text="Employees"/>
+                <ToolbarSpacer/>
+                <SearchField 
+               width="50%" 
+               search=".onFilter"/>
+        <!-- <Button text="Add" /> TODO : emplement button add -->
+        </Toolbar>
+
+         <Table id="employeesList" items="{/results}">
+            
+            <columns>
+                <Column>
+                    <Text text="ID"></Text>
+                </Column>
+                <Column>
+                    <Text text="First Name"></Text>
+                </Column>
+                <Column>
+                    <Text text="Last Name"></Text>
+                </Column>
+                <Column>
+                    <Text text="Postal Code"></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation" press=".onPress">
+                    <cells>
+                        <Text text="{Id}" />
+                        <Text text="{FirstName}" />
+                        <Text text="{LastName}" />
+                        <Text text="{Adresse}" />
+
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+</mvc:View>
